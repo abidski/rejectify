@@ -1,15 +1,15 @@
 # rejectify
 
-A self-hosted job application tracker that automatically classifies and extracts data from job application related emails using  LLM.
+A self-hosted job application tracker that automatically classifies and extracts data from job application related emails using an LLM.
 
 ## Why
 
-Maually inputing your job applications when applying takes alot of time and gets messy when there are many of applications. This solution provides for a cleaner approach.
+Manually inputting your job applications when applying takes a lot of time and gets messy when there are many applications. This provides a cleaner way to track applications.
 
 ## Features
 
 - **Automated email ingestion** — parses through email inbox using IMAP
-- **LLM classification** — uses Groq LLM's to classify and extract email (wether the email is a rejection or an offer...)
+- **LLM classification** — uses a Groq LLM to classify and extract data from emails (whether the email is a rejection or an offer...)
 - **PostgreSQL persistence** — uses PostgreSQL to store data and info regarding applications
 
 ## Tech Stack
@@ -33,26 +33,25 @@ Email poller/extraction ──> LLM classifier (llama-3.3-70b-versatile)
     │                    │
     │                    ▼
     │           Email type (confirmation / rejection / interview / other)
-    │           Application infor (company, role, date)
+    │           Application info (company, role, date)
     │
     ▼
-PostgreSQL ──> To be built [FastAPI ──> Client]
+PostgreSQL ──> FastAPI
 ```
 
-Uses IMAP to access inbox and uses [Groq](https://console.groq.com/home?utm_source=website&utm_medium=outbound_link&utm_campaign=dev_console_click) to extract emails and parse data regarding applications before writing data to Postgres.  Use [Groq](https://console.groq.com/home?utm_source=website&utm_medium=outbound_link&utm_campaign=dev_console_click) to gain acces to top of the line LLM's to classify emails.
+Uses IMAP to access inbox and uses [Groq](https://console.groq.com/home?utm_source=website&utm_medium=outbound_link&utm_campaign=dev_console_click) to extract emails and parse data regarding applications before writing data to Postgres.  Uses [Groq](https://console.groq.com/home?utm_source=website&utm_medium=outbound_link&utm_campaign=dev_console_click) to gain access to top-of-the-line LLMs to classify emails.
 
-## How it works
 
 ### Prerequisites
 
-- Python 3.11+
-- PostgreSQL 15+
+- Python 
+- PostgreSQL
 - Obtain a free Groq API key
-- Enable IMAP accesability via [Gmail](https://developers.google.com/workspace/gmail/imap/imap-smtp) with an App Password
+- Enable IMAP access via [Gmail](https://developers.google.com/workspace/gmail/imap/imap-smtp) with an App Password
 
 ### Installation
 
-Get acces to email inbox by enabaling IMAP via [Gmail](https://developers.google.com/workspace/gmail/imap/imap-smtp) and obtain an app password.
+Get access to email inbox by enabling IMAP via [Gmail](https://developers.google.com/workspace/gmail/imap/imap-smtp) and obtain an app password.
 
 ```bash
 git clone https://github.com/<your-username>/rejectify.git
@@ -81,7 +80,10 @@ DBPORT=...
 
 ### Run
 
-Make sure DB is running before-hand.
+Make sure DB is running beforehand.
+
+Run the email extraction script
+
 ```bash
 python main.py
 ```
