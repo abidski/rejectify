@@ -29,19 +29,19 @@ Maually inputing your job applications when applying takes alot of time and gets
 IMAP inbox
     │
     ▼
-Email poller/extraction ──> LLM classifier (Ollama / Llama 3.2)
+Email poller/extraction ──> LLM classifier (llama-3.3-70b-versatile)
     │                    │
     │                    ▼
     │           Email type (confirmation / rejection / interview / other)
-    │            Application infor (company, role, date)
+    │           Application infor (company, role, date)
     │
     ▼
 PostgreSQL ──> To be built [FastAPI ──> Client]
 ```
 
-Used IMAP to extract emails and parse data regarding application before writing data to Postgres.  Use Groq to gain acces to top of the line LLM's to classify emails.
+Uses IMAP to access inbox and uses [Groq](https://console.groq.com/home?utm_source=website&utm_medium=outbound_link&utm_campaign=dev_console_click) to extract emails and parse data regarding applications before writing data to Postgres.  Use [Groq](https://console.groq.com/home?utm_source=website&utm_medium=outbound_link&utm_campaign=dev_console_click) to gain acces to top of the line LLM's to classify emails.
 
-## Getting Started
+## How it works
 
 ### Prerequisites
 
